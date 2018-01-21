@@ -1,0 +1,151 @@
+
+Creating CNN model...
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            (None, 48, 140, 3)   0                                            
+__________________________________________________________________________________________________
+conv2d_1 (Conv2D)               (None, 48, 140, 32)  896         input_1[0][0]                    
+__________________________________________________________________________________________________
+conv2d_2 (Conv2D)               (None, 46, 138, 32)  9248        conv2d_1[0][0]                   
+__________________________________________________________________________________________________
+max_pooling2d_1 (MaxPooling2D)  (None, 23, 69, 32)   0           conv2d_2[0][0]                   
+__________________________________________________________________________________________________
+conv2d_3 (Conv2D)               (None, 23, 69, 64)   18496       max_pooling2d_1[0][0]            
+__________________________________________________________________________________________________
+conv2d_4 (Conv2D)               (None, 21, 67, 64)   36928       conv2d_3[0][0]                   
+__________________________________________________________________________________________________
+max_pooling2d_2 (MaxPooling2D)  (None, 10, 33, 64)   0           conv2d_4[0][0]                   
+__________________________________________________________________________________________________
+conv2d_5 (Conv2D)               (None, 10, 33, 128)  73856       max_pooling2d_2[0][0]            
+__________________________________________________________________________________________________
+conv2d_6 (Conv2D)               (None, 8, 31, 128)   147584      conv2d_5[0][0]                   
+__________________________________________________________________________________________________
+batch_normalization_1 (BatchNor (None, 8, 31, 128)   32          conv2d_6[0][0]                   
+__________________________________________________________________________________________________
+max_pooling2d_3 (MaxPooling2D)  (None, 4, 15, 128)   0           batch_normalization_1[0][0]      
+__________________________________________________________________________________________________
+conv2d_7 (Conv2D)               (None, 4, 15, 256)   295168      max_pooling2d_3[0][0]            
+__________________________________________________________________________________________________
+conv2d_8 (Conv2D)               (None, 4, 15, 256)   590080      conv2d_7[0][0]                   
+__________________________________________________________________________________________________
+max_pooling2d_4 (MaxPooling2D)  (None, 2, 7, 256)    0           conv2d_8[0][0]                   
+__________________________________________________________________________________________________
+conv2d_9 (Conv2D)               (None, 2, 7, 512)    1180160     max_pooling2d_4[0][0]            
+__________________________________________________________________________________________________
+batch_normalization_2 (BatchNor (None, 2, 7, 512)    8           conv2d_9[0][0]                   
+__________________________________________________________________________________________________
+max_pooling2d_5 (MaxPooling2D)  (None, 1, 3, 512)    0           batch_normalization_2[0][0]      
+__________________________________________________________________________________________________
+flatten_1 (Flatten)             (None, 1536)         0           max_pooling2d_5[0][0]            
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, 1536)         0           flatten_1[0][0]                  
+__________________________________________________________________________________________________
+digit1 (Dense)                  (None, 19)           29203       dropout_1[0][0]                  
+__________________________________________________________________________________________________
+digit2 (Dense)                  (None, 19)           29203       dropout_1[0][0]                  
+__________________________________________________________________________________________________
+digit3 (Dense)                  (None, 19)           29203       dropout_1[0][0]                  
+__________________________________________________________________________________________________
+digit4 (Dense)                  (None, 19)           29203       dropout_1[0][0]                  
+==================================================================================================
+Total params: 2,469,268
+Trainable params: 2,469,248
+Non-trainable params: 20
+__________________________________________________________________________________________________
+Reading training data...
+Shape of train data: (10000, 48, 140, 3)
+Reading validation data...
+Shape of train data: (1000, 48, 140, 3)
+training new model...
+Train on 10000 samples, validate on 1000 samples
+Epoch 1/40
+
+Epoch 00001: val_digit4_acc improved from -inf to 0.06500, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 414s - loss: 14.6529 - digit1_loss: 3.6425 - digit2_loss: 3.6797 - digit3_loss: 3.6584 - digit4_loss: 3.6724 - digit1_acc: 0.0598 - digit2_acc: 0.0558 - digit3_acc: 0.0597 - digit4_acc: 0.0511 - val_loss: 12.4723 - val_digit1_loss: 3.0807 - val_digit2_loss: 3.2711 - val_digit3_loss: 3.0800 - val_digit4_loss: 3.0405 - val_digit1_acc: 0.0760 - val_digit2_acc: 0.0490 - val_digit3_acc: 0.0520 - val_digit4_acc: 0.0650
+Epoch 2/40
+
+Epoch 00002: val_digit4_acc improved from 0.06500 to 0.08200, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 422s - loss: 11.5078 - digit1_loss: 2.7430 - digit2_loss: 2.8410 - digit3_loss: 2.8789 - digit4_loss: 3.0449 - digit1_acc: 0.1388 - digit2_acc: 0.1123 - digit3_acc: 0.1110 - digit4_acc: 0.0835 - val_loss: 11.7174 - val_digit1_loss: 2.8634 - val_digit2_loss: 3.0084 - val_digit3_loss: 2.9628 - val_digit4_loss: 2.8828 - val_digit1_acc: 0.0860 - val_digit2_acc: 0.0710 - val_digit3_acc: 0.0730 - val_digit4_acc: 0.0820
+Epoch 3/40
+
+Epoch 00003: val_digit4_acc did not improve
+ - 402s - loss: 9.8075 - digit1_loss: 2.1658 - digit2_loss: 2.4307 - digit3_loss: 2.4761 - digit4_loss: 2.7349 - digit1_acc: 0.2710 - digit2_acc: 0.2105 - digit3_acc: 0.1854 - digit4_acc: 0.1308 - val_loss: 14.0386 - val_digit1_loss: 3.6872 - val_digit2_loss: 3.6304 - val_digit3_loss: 3.5998 - val_digit4_loss: 3.1213 - val_digit1_acc: 0.0570 - val_digit2_acc: 0.0520 - val_digit3_acc: 0.0580 - val_digit4_acc: 0.0610
+Epoch 4/40
+
+Epoch 00004: val_digit4_acc did not improve
+ - 416s - loss: 7.5121 - digit1_loss: 1.3321 - digit2_loss: 1.8675 - digit3_loss: 1.9835 - digit4_loss: 2.3291 - digit1_acc: 0.5367 - digit2_acc: 0.3666 - digit3_acc: 0.3283 - digit4_acc: 0.2198 - val_loss: 15.5835 - val_digit1_loss: 4.2582 - val_digit2_loss: 3.9892 - val_digit3_loss: 3.9423 - val_digit4_loss: 3.3938 - val_digit1_acc: 0.0790 - val_digit2_acc: 0.0650 - val_digit3_acc: 0.0710 - val_digit4_acc: 0.0590
+Epoch 5/40
+
+Epoch 00005: val_digit4_acc improved from 0.08200 to 0.21000, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 408s - loss: 4.5713 - digit1_loss: 0.6195 - digit2_loss: 1.1613 - digit3_loss: 1.2710 - digit4_loss: 1.5195 - digit1_acc: 0.7858 - digit2_acc: 0.6076 - digit3_acc: 0.5657 - digit4_acc: 0.4763 - val_loss: 12.1685 - val_digit1_loss: 2.9634 - val_digit2_loss: 3.1634 - val_digit3_loss: 3.2391 - val_digit4_loss: 2.8026 - val_digit1_acc: 0.2470 - val_digit2_acc: 0.2280 - val_digit3_acc: 0.2290 - val_digit4_acc: 0.2100
+Epoch 6/40
+
+Epoch 00006: val_digit4_acc improved from 0.21000 to 0.40500, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 413s - loss: 2.3949 - digit1_loss: 0.2943 - digit2_loss: 0.6319 - digit3_loss: 0.7281 - digit4_loss: 0.7407 - digit1_acc: 0.9059 - digit2_acc: 0.7943 - digit3_acc: 0.7624 - digit4_acc: 0.7460 - val_loss: 8.3604 - val_digit1_loss: 1.8797 - val_digit2_loss: 2.2423 - val_digit3_loss: 2.3595 - val_digit4_loss: 1.8788 - val_digit1_acc: 0.4810 - val_digit2_acc: 0.4320 - val_digit3_acc: 0.4060 - val_digit4_acc: 0.4050
+Epoch 7/40
+
+Epoch 00007: val_digit4_acc improved from 0.40500 to 0.66300, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 400s - loss: 1.3647 - digit1_loss: 0.1743 - digit2_loss: 0.3990 - digit3_loss: 0.4275 - digit4_loss: 0.3639 - digit1_acc: 0.9474 - digit2_acc: 0.8785 - digit3_acc: 0.8658 - digit4_acc: 0.8867 - val_loss: 4.9334 - val_digit1_loss: 1.1280 - val_digit2_loss: 1.3701 - val_digit3_loss: 1.4216 - val_digit4_loss: 1.0137 - val_digit1_acc: 0.6470 - val_digit2_acc: 0.6120 - val_digit3_acc: 0.5890 - val_digit4_acc: 0.6630
+Epoch 8/40
+
+Epoch 00008: val_digit4_acc improved from 0.66300 to 0.95300, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 430s - loss: 0.8296 - digit1_loss: 0.1110 - digit2_loss: 0.2444 - digit3_loss: 0.2814 - digit4_loss: 0.1927 - digit1_acc: 0.9697 - digit2_acc: 0.9301 - digit3_acc: 0.9190 - digit4_acc: 0.9448 - val_loss: 1.0428 - val_digit1_loss: 0.1454 - val_digit2_loss: 0.3436 - val_digit3_loss: 0.3516 - val_digit4_loss: 0.2022 - val_digit1_acc: 0.9490 - val_digit2_acc: 0.8880 - val_digit3_acc: 0.8950 - val_digit4_acc: 0.9530
+Epoch 9/40
+
+Epoch 00009: val_digit4_acc improved from 0.95300 to 0.97900, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 419s - loss: 0.5975 - digit1_loss: 0.0802 - digit2_loss: 0.1834 - digit3_loss: 0.2016 - digit4_loss: 0.1324 - digit1_acc: 0.9792 - digit2_acc: 0.9470 - digit3_acc: 0.9424 - digit4_acc: 0.9631 - val_loss: 0.6368 - val_digit1_loss: 0.0781 - val_digit2_loss: 0.2091 - val_digit3_loss: 0.2481 - val_digit4_loss: 0.1015 - val_digit1_acc: 0.9850 - val_digit2_acc: 0.9390 - val_digit3_acc: 0.9420 - val_digit4_acc: 0.9790
+Epoch 10/40
+
+Epoch 00010: val_digit4_acc improved from 0.97900 to 0.98800, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 416s - loss: 0.4490 - digit1_loss: 0.0590 - digit2_loss: 0.1372 - digit3_loss: 0.1629 - digit4_loss: 0.0900 - digit1_acc: 0.9858 - digit2_acc: 0.9639 - digit3_acc: 0.9546 - digit4_acc: 0.9772 - val_loss: 0.5454 - val_digit1_loss: 0.0657 - val_digit2_loss: 0.1840 - val_digit3_loss: 0.2289 - val_digit4_loss: 0.0669 - val_digit1_acc: 0.9880 - val_digit2_acc: 0.9560 - val_digit3_acc: 0.9490 - val_digit4_acc: 0.9880
+Epoch 11/40
+
+Epoch 00011: val_digit4_acc did not improve
+ - 405s - loss: 0.3532 - digit1_loss: 0.0483 - digit2_loss: 0.1140 - digit3_loss: 0.1222 - digit4_loss: 0.0688 - digit1_acc: 0.9887 - digit2_acc: 0.9702 - digit3_acc: 0.9631 - digit4_acc: 0.9818 - val_loss: 0.5037 - val_digit1_loss: 0.0621 - val_digit2_loss: 0.1651 - val_digit3_loss: 0.2088 - val_digit4_loss: 0.0677 - val_digit1_acc: 0.9860 - val_digit2_acc: 0.9580 - val_digit3_acc: 0.9530 - val_digit4_acc: 0.9880
+Epoch 12/40
+
+Epoch 00012: val_digit4_acc did not improve
+ - 406s - loss: 0.3019 - digit1_loss: 0.0384 - digit2_loss: 0.0940 - digit3_loss: 0.1108 - digit4_loss: 0.0587 - digit1_acc: 0.9905 - digit2_acc: 0.9729 - digit3_acc: 0.9692 - digit4_acc: 0.9845 - val_loss: 0.7236 - val_digit1_loss: 0.0942 - val_digit2_loss: 0.2444 - val_digit3_loss: 0.2797 - val_digit4_loss: 0.1053 - val_digit1_acc: 0.9800 - val_digit2_acc: 0.9390 - val_digit3_acc: 0.9490 - val_digit4_acc: 0.9780
+Epoch 13/40
+
+Epoch 00013: val_digit4_acc did not improve
+ - 414s - loss: 0.2657 - digit1_loss: 0.0349 - digit2_loss: 0.0906 - digit3_loss: 0.0935 - digit4_loss: 0.0467 - digit1_acc: 0.9914 - digit2_acc: 0.9750 - digit3_acc: 0.9715 - digit4_acc: 0.9874 - val_loss: 0.5820 - val_digit1_loss: 0.0588 - val_digit2_loss: 0.1906 - val_digit3_loss: 0.2602 - val_digit4_loss: 0.0724 - val_digit1_acc: 0.9910 - val_digit2_acc: 0.9550 - val_digit3_acc: 0.9580 - val_digit4_acc: 0.9850
+Epoch 14/40
+
+Epoch 00014: val_digit4_acc improved from 0.98800 to 0.99000, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 439s - loss: 0.2254 - digit1_loss: 0.0319 - digit2_loss: 0.0752 - digit3_loss: 0.0795 - digit4_loss: 0.0389 - digit1_acc: 0.9915 - digit2_acc: 0.9776 - digit3_acc: 0.9750 - digit4_acc: 0.9907 - val_loss: 0.4833 - val_digit1_loss: 0.0668 - val_digit2_loss: 0.1620 - val_digit3_loss: 0.1949 - val_digit4_loss: 0.0596 - val_digit1_acc: 0.9880 - val_digit2_acc: 0.9650 - val_digit3_acc: 0.9640 - val_digit4_acc: 0.9900
+Epoch 15/40
+
+Epoch 00015: val_digit4_acc improved from 0.99000 to 0.99100, saving model to /Users/garys/Desktop/keras cnn/new model/cnn_model.hdf5
+ - 402s - loss: 0.1801 - digit1_loss: 0.0234 - digit2_loss: 0.0613 - digit3_loss: 0.0674 - digit4_loss: 0.0280 - digit1_acc: 0.9925 - digit2_acc: 0.9822 - digit3_acc: 0.9805 - digit4_acc: 0.9936 - val_loss: 0.5534 - val_digit1_loss: 0.0640 - val_digit2_loss: 0.1875 - val_digit3_loss: 0.2335 - val_digit4_loss: 0.0685 - val_digit1_acc: 0.9900 - val_digit2_acc: 0.9590 - val_digit3_acc: 0.9630 - val_digit4_acc: 0.9910
+Epoch 16/40
+
+Epoch 00016: val_digit4_acc did not improve
+ - 392s - loss: 0.1607 - digit1_loss: 0.0197 - digit2_loss: 0.0510 - digit3_loss: 0.0592 - digit4_loss: 0.0309 - digit1_acc: 0.9949 - digit2_acc: 0.9843 - digit3_acc: 0.9817 - digit4_acc: 0.9919 - val_loss: 1.0904 - val_digit1_loss: 0.1446 - val_digit2_loss: 0.4239 - val_digit3_loss: 0.3674 - val_digit4_loss: 0.1546 - val_digit1_acc: 0.9670 - val_digit2_acc: 0.9100 - val_digit3_acc: 0.9370 - val_digit4_acc: 0.9690
+Epoch 17/40
+
+Epoch 00017: val_digit4_acc did not improve
+ - 399s - loss: 0.1282 - digit1_loss: 0.0133 - digit2_loss: 0.0414 - digit3_loss: 0.0487 - digit4_loss: 0.0248 - digit1_acc: 0.9959 - digit2_acc: 0.9870 - digit3_acc: 0.9840 - digit4_acc: 0.9930 - val_loss: 0.5508 - val_digit1_loss: 0.0611 - val_digit2_loss: 0.1741 - val_digit3_loss: 0.2406 - val_digit4_loss: 0.0750 - val_digit1_acc: 0.9890 - val_digit2_acc: 0.9630 - val_digit3_acc: 0.9480 - val_digit4_acc: 0.9900
+Epoch 18/40
+
+Epoch 00018: val_digit4_acc did not improve
+ - 427s - loss: 0.1212 - digit1_loss: 0.0164 - digit2_loss: 0.0368 - digit3_loss: 0.0428 - digit4_loss: 0.0251 - digit1_acc: 0.9949 - digit2_acc: 0.9884 - digit3_acc: 0.9860 - digit4_acc: 0.9933 - val_loss: 0.6136 - val_digit1_loss: 0.0647 - val_digit2_loss: 0.1917 - val_digit3_loss: 0.2829 - val_digit4_loss: 0.0742 - val_digit1_acc: 0.9910 - val_digit2_acc: 0.9610 - val_digit3_acc: 0.9590 - val_digit4_acc: 0.9910
+Epoch 19/40
+
+Epoch 00019: val_digit4_acc did not improve
+ - 437s - loss: 0.1125 - digit1_loss: 0.0164 - digit2_loss: 0.0361 - digit3_loss: 0.0383 - digit4_loss: 0.0218 - digit1_acc: 0.9954 - digit2_acc: 0.9885 - digit3_acc: 0.9884 - digit4_acc: 0.9934 - val_loss: 0.5954 - val_digit1_loss: 0.0739 - val_digit2_loss: 0.1982 - val_digit3_loss: 0.2483 - val_digit4_loss: 0.0750 - val_digit1_acc: 0.9900 - val_digit2_acc: 0.9660 - val_digit3_acc: 0.9580 - val_digit4_acc: 0.9900
+Epoch 20/40
+
+Epoch 00020: val_digit4_acc did not improve
+ - 442s - loss: 0.1097 - digit1_loss: 0.0125 - digit2_loss: 0.0356 - digit3_loss: 0.0428 - digit4_loss: 0.0188 - digit1_acc: 0.9959 - digit2_acc: 0.9890 - digit3_acc: 0.9867 - digit4_acc: 0.9947 - val_loss: 0.5763 - val_digit1_loss: 0.0619 - val_digit2_loss: 0.1843 - val_digit3_loss: 0.2566 - val_digit4_loss: 0.0735 - val_digit1_acc: 0.9900 - val_digit2_acc: 0.9670 - val_digit3_acc: 0.9560 - val_digit4_acc: 0.9880
+Epoch 21/40
+
+Epoch 00021: val_digit4_acc did not improve
+ - 440s - loss: 0.0819 - digit1_loss: 0.0090 - digit2_loss: 0.0295 - digit3_loss: 0.0294 - digit4_loss: 0.0139 - digit1_acc: 0.9970 - digit2_acc: 0.9911 - digit3_acc: 0.9909 - digit4_acc: 0.9968 - val_loss: 0.5499 - val_digit1_loss: 0.0632 - val_digit2_loss: 0.1731 - val_digit3_loss: 0.2372 - val_digit4_loss: 0.0765 - val_digit1_acc: 0.9860 - val_digit2_acc: 0.9630 - val_digit3_acc: 0.9610 - val_digit4_acc: 0.9880
+Epoch 22/40
+
+Epoch 00022: val_digit4_acc did not improve
+ - 411s - loss: 0.0765 - digit1_loss: 0.0096 - digit2_loss: 0.0262 - digit3_loss: 0.0259 - digit4_loss: 0.0149 - digit1_acc: 0.9977 - digit2_acc: 0.9919 - digit3_acc: 0.9922 - digit4_acc: 0.9966 - val_loss: 0.5713 - val_digit1_loss: 0.0754 - val_digit2_loss: 0.1641 - val_digit3_loss: 0.2508 - val_digit4_loss: 0.0810 - val_digit1_acc: 0.9880 - val_digit2_acc: 0.9700 - val_digit3_acc: 0.9640 - val_digit4_acc: 0.9890
+Epoch 00022: early stopping
+

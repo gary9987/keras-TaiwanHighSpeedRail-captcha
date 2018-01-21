@@ -108,8 +108,7 @@ font-size:12.0pt;
 font-family:"新細明體",serif;
 mso-bidi-font-family:新細明體;}
 a:link, span.MsoHyperlink
-{mso-style-noshow:yes;
-mso-style-priority:99;
+{mso-style-priority:99;
 color:#0563C1;
 mso-themecolor:hyperlink;
 text-decoration:underline;
@@ -354,6 +353,8 @@ ul
 
 
 (僅供學術研究用途，請勿違法使用於大量自動訂票。)
+
+開放原始碼：[https://github.com/gary9987/-Keras-TensorFlow-Python3.6](https://github.com/gary9987/-Keras-TensorFlow-Python3.6-)-
 
 ![](使用Keras%20和Python3.fld/image001.png)
 
