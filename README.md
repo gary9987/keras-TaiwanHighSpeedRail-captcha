@@ -473,6 +473,6 @@ TemsorFlow+Keras深度學習 人工智慧實務應用 （書）
 [實作基於CNN的台鐵訂票驗證碼辨識以及驗證性高的訓練集產生器](https://github.com/JasonLiTW/simple-railway-captcha-solver)
 
 ３．
-[TensorFlow識別字母扭曲干擾型驗證碼-開放源碼與98%模型](https://zhuanlan.zhihu.com/p/25779608)
+[TensorFlow識別字母扭曲干擾型驗證碼-開放源碼與98%模型](https://www.urlteam.org/2017/03/tensorflow%E8%AF%86%E5%88%AB%E5%AD%97%E6%AF%8D%E6%89%AD%E6%9B%B2%E5%B9%B2%E6%89%B0%E5%9E%8B%E9%AA%8C%E8%AF%81%E7%A0%81-%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81%E4%B8%8E98%E6%A8%A1%E5%9E%8B/)
 
 
