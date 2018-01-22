@@ -8,7 +8,7 @@ import requests
 count = 0
 
 session = requests.Session()
-while (count<5000):
+while (count<=5000):
     count += 1
     response = session.get('https://irs.thsrc.com.tw/IMINT/', cookies={'from-my': 'browser'})
     source = response.content.decode('utf-8')
