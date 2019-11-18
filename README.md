@@ -482,3 +482,22 @@ TemsorFlow+Keras深度學習 人工智慧實務應用 （書）
 [~~TensorFlow識別字母扭曲干擾型驗證碼-開放源碼與98%模型~~](https://www.urlteam.org/2017/03/tensorflow%E8%AF%86%E5%88%AB%E5%AD%97%E6%AF%8D%E6%89%AD%E6%9B%B2%E5%B9%B2%E6%89%B0%E5%9E%8B%E9%AA%8C%E8%AF%81%E7%A0%81-%E5%BC%80%E6%94%BE%E6%BA%90%E7%A0%81%E4%B8%8E98%E6%A8%A1%E5%9E%8B/)
 
 
+
+原始碼大略介紹 ****update: 2019.11.18****
+---
+
+
+因為很久沒有修改程式碼，在一些對高鐵網站request的部分失效。
+暫時沒有時間修改。
+
+**更新內容**：
+* 更README.md。
+* 路徑改為相對路徑，workspace請在`-Keras-Python3.6-captcha/cnn/`。
+* 更新`cnn_model.hdf5`，發先原本上傳的是錯誤的版本。
+* 更新`chromedriver，此為macos適用版本，請自行替換適合當前系統的版本。
+
+**主要步驟**：
+1. 先用`python catch img session/get img.py`抓一些驗證碼圖片下來。(網路部分還未修復)
+2. 使用`img process plus/img p plus.py`處理剛抓下來的圖片，標Label。
+3. 使用`keras tensor cnn/keras train.py`訓練model。
+4. 使用`get_imgae/2/get img drive`並用訓練好的model做預測，將預測成功的圖片再抓下來，自動標Label，就能有更大的資料集來訓練Model。

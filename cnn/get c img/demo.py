@@ -24,11 +24,11 @@ def to_text2(int):
     return "".join(text)
 
 
-model = load_model('/Users/garys/Desktop/get c img/cnn_model.hdf5')
+model = load_model('model/cnn_model.hdf5')
 
 def predict():
     index = 1
-    x_train = np.stack([np.array(Image.open("/Users/garys/Desktop/get c img/2/image/" + str(index) + ".jpg"))/255.0 for index in range(1, index+1, 1)])
+    x_train = np.stack([np.array(Image.open("get_image/2/img/" + str(index) + ".jpg"))/255.0 for index in range(1, index+1, 1)])
 
     print('predict start')
 
