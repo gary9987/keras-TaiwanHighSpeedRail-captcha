@@ -358,7 +358,7 @@ ul
 
 開放原始碼：[https://github.com/gary9987/-Keras-TensorFlow-Python3.6](https://github.com/gary9987/-Keras-TensorFlow-Python3.6-)-
 
-![](使用Keras%20和Python3.fld/image001.png)
+![](readme_resource/image001.png)
 
 圖片處理的部分：
 
@@ -388,7 +388,7 @@ ul
 
 具體的程式碼大概是這樣：
 
-![](使用Keras%20和Python3.fld/image004.png)
+![](readme_resource/image004.png)
 
 後來發現曲線處理得非常差因為可用來算迴歸線的像素點太少，因此我把驗證碼的原本的dpi乘以10倍之後再處理曲線，並且針對不同圖案大小需要不同的曲線寬度，最後在resize成固定的大小，我是存成（140, 48）。
 
@@ -396,7 +396,7 @@ ul
 
 處理完會像這樣：
 
-![](使用Keras%20和Python3.fld/image002.jpg)
+![](readme_resource/image002.jpg)
 
 
 
@@ -410,11 +410,11 @@ CNN的整個架構圖：
 
 
 
-![](使用Keras%20和Python3.fld/image003.png)
+![](readme_resource/image003.png)
 
 
 
-![](使用Keras%20和Python3.fld/image005.png)
+![](readme_resource/image005.png)
 
 
 
@@ -430,7 +430,7 @@ CNN的整個架構圖：
 
 可以在我建立的字典中了解：
 
-![](使用Keras%20和Python3.fld/image006.png)
+![](readme_resource/image006.png)
 
 
 
@@ -454,17 +454,17 @@ CNN的整個架構圖：
 
 以下是訓練過程：數據有底多，只截出部分週期。
 
-![](使用Keras%20和Python3.fld/image007.png)
+![](readme_resource/image007.png)
 
 
 
 
 
-![](使用Keras%20和Python3.fld/image008.png)
+![](readme_resource/image008.png)
 
-![](使用Keras%20和Python3.fld/image010.png)![](使用Keras%20和Python3.fld/image009.png)
+![](readme_resource/image010.png)![](readme_resource/image009.png)
 
-![](使用Keras%20和Python3.fld/image011.png)![](使用Keras%20和Python3.fld/image012.png)
+![](readme_resource/image011.png)![](readme_resource/image012.png)
 
 
 
