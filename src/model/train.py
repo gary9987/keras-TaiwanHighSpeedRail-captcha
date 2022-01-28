@@ -6,7 +6,7 @@ from keras.models import load_model
 from keras.models import Model
 from keras.layers import Input, Dense, Dropout, Flatten, Conv2D, MaxPooling2D
 from keras.layers.normalization import BatchNormalization
-from keras.utils  import np_utils
+from keras.utils import np_utils
 from keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard
 import csv
 
@@ -33,7 +33,6 @@ def to_text(l_list):
         char_idx = pos[i]
         text.append(list(dic19.keys())[list(dic19.values()).index(char_idx)])
         return "".join(text)
-
 
 
 #creat CNN trained_model
@@ -70,7 +69,7 @@ model.compile(loss='categorical_crossentropy', optimizer='Adamax', metrics=['acc
 model.summary()
               
 print("Reading training data...")
-train_data = np.stack([np.array(Image.open("/img f/" + str(index) + ".jpg"))/255.0 for index in range(1, 10001, 1)])
+train_data = np.stack([np.array(Image.open("/processed_image/" + str(index) + ".jpg"))/255.0 for index in range(1, 10001, 1)])
 traincsv = open('/lebal.csv', 'r', encoding = 'utf8')
 read_label =  [to_onelist(row[0]) for row in csv.reader(traincsv)]
 train_label = [[] for _ in range(4)]
@@ -102,7 +101,7 @@ except:
 
 checkpoint = ModelCheckpoint(filepath, monitor='val_digit4_acc', verbose=1, save_best_only=True, mode='max')
 earlystop = EarlyStopping(monitor='val_loss', patience=8, verbose=1, mode='auto')
-tensorBoard = TensorBoard(log_dir = '/Users/garys/Desktop/keras src/new trained_model/logs', histogram_freq = 1)
+tensorBoard = TensorBoard(log_dir='./logs', histogram_freq = 1)
 callbacks_list = [tensorBoard, earlystop, checkpoint]
 model.fit(train_data, train_label, batch_size=50, epochs=40, verbose=2, validation_data=(vali_data, vali_label), callbacks=callbacks_list)
 #.fit(train_data, train_label, validation_split=0.2, batch_size=50, epochs=20, verbose=2, callbacks=callbacks_list)
