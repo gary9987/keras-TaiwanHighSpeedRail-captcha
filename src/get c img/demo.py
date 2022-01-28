@@ -24,16 +24,18 @@ def to_text2(int):
     return "".join(text)
 
 
-model = load_model('model/cnn_model.hdf5')
+model = load_model('trained_model/cnn_model.hdf5')
 
-def predict(dir):
-    num = 1
-    x_train = np.stack([np.array(Image.open(dir))/255.0])
+def predict():
+    index = 1
+    x_train = np.stack([np.array(Image.open("get_image/2/img/" + str(index) + ".jpg"))/255.0 for index in range(1, index+1, 1)])
+
+    print('predict start')
 
     prediction = model.predict(x_train)
-    resultlist = ["" for _ in range(num)]
+    resultlist = ["" for _ in range(index)]
     for predict in prediction:
-        for index in range(num):
+        for index in range(index):
             resultlist[index] += to_text2(np.argmax(predict[index]))
 
     return resultlist[0]

@@ -26,7 +26,7 @@ plt.rcParams.update({'figure.max_open_warning': 0}) #fix the memory error
 
 while (count <= 8000):
  
-    img = cv2.imread('/python catch img session /image /'+str(count)+'.jpg')
+    img = cv2.imread('/download_img/image /'+str(count)+'.jpg')
     dst = cv2.fastNlMeansDenoisingColored(img, None, 31, 31 ,7 ,21)
     height1, width1, channels1 = img.shape #get img height and width
     

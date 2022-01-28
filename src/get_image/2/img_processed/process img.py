@@ -1,5 +1,5 @@
-# /Users/garys/Desktop/cnn project /2018 01 12/process img/image
-#/Users/garys/Desktop/cnn project /2018 01 12/process img/image/1.jpg
+# /Users/garys/Desktop/src project /2018 01 12/process img/image
+#/Users/garys/Desktop/src project /2018 01 12/process img/image/1.jpg
 from PIL import Image
 import cv2
 

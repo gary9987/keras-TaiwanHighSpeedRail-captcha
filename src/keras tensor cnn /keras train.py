@@ -36,8 +36,8 @@ def to_text(l_list):
 
 
 
-#creat CNN model
-print('Creating CNN model...')
+#creat CNN trained_model
+print('Creating CNN trained_model...')
 tensor_in = Input((48, 140, 3))
 tensor_out = tensor_in
 tensor_out = Conv2D(filters=32, kernel_size=(3, 3), padding='same', activation='relu')(tensor_out)
@@ -92,17 +92,17 @@ vali_label = [arr for arr in np.asarray(vali_label)]
 print("Shape of train data:", vali_data.shape)
 
 
-filepath='model/cnn_model.hdf5'
+filepath='trained_model/cnn_model.hdf5'
 try:
     model = load_model(filepath)
-    print('model is loaded...')
+    print('trained_model is loaded...')
 except:
     model.save(filepath)
-    print('training new model...')
+    print('training new trained_model...')
 
 checkpoint = ModelCheckpoint(filepath, monitor='val_digit4_acc', verbose=1, save_best_only=True, mode='max')
 earlystop = EarlyStopping(monitor='val_loss', patience=8, verbose=1, mode='auto')
-tensorBoard = TensorBoard(log_dir = '/Users/garys/Desktop/keras cnn/new model/logs', histogram_freq = 1)
+tensorBoard = TensorBoard(log_dir = '/Users/garys/Desktop/keras src/new trained_model/logs', histogram_freq = 1)
 callbacks_list = [tensorBoard, earlystop, checkpoint]
 model.fit(train_data, train_label, batch_size=50, epochs=40, verbose=2, validation_data=(vali_data, vali_label), callbacks=callbacks_list)
 #.fit(train_data, train_label, validation_split=0.2, batch_size=50, epochs=20, verbose=2, callbacks=callbacks_list)

@@ -36,8 +36,8 @@ def to_text2(int):
     text.append(list(dic19.keys())[list(dic19.values()).index(int)])
     return "".join(text)
 
-print('model loading...')
-model = load_model('model/cnn_model.hdf5')
+print('trained_model loading...')
+model = load_model('trained_model/cnn_model.hdf5')
 
 
 test_num = 1+5000 #test number
